@@ -32,7 +32,7 @@ apt-get $APT_OPTIONS update | indent
 echo "Installing ImageMagick ${IMAGEMAGICK_VERSION}" | arrow
 
 #apt-get $APT_OPTIONS -y -d install imagemagick=$IMAGEMAGICK_VERSION bzlib freetype gs jpeg jng jp2 lcms png zlib librsvg2-bin| indent
-apt-get $APT_OPTIONS -y -d install imagemagick bzlib freetype gs jpeg jng jp2 lcms png zlib librsvg2-bin| indent
+apt-get $APT_OPTIONS -y -d install imagemagick libpng12-0| indent
 
 mkdir -p $BUILD_DIR/.apt
 
