@@ -5,11 +5,11 @@ set -e
 BUILD_DIR=$1
 CACHE_DIR=$2
 SOURCE_LIST=`dirname $0`/../etc/sources.list
-IMAGEMAGICK_VERSION=6.9.1-3
+IMAGEMAGICK_VERSION=6.9.2-0
 BIN_PATH=.apt/usr/bin
 LIB_PATH=.apt/usr/lib/x86_64-linux-gnu/
-MAGICK_CODER_MODULE_PATH=$LIB_PATH/ImageMagick-6.9.1/modules-Q16/coders
-MAGICK_CODER_FILTER_PATH=$LIB_PATH/ImageMagick-6.9.1/modules-Q16/filters
+MAGICK_CODER_MODULE_PATH=$LIB_PATH/ImageMagick-6.9.2/modules-Q16/coders
+MAGICK_CODER_FILTER_PATH=$LIB_PATH/ImageMagick-6.9.2/modules-Q16/filters
 
 indent() {
   sed -u 's/^/       /'
@@ -31,7 +31,8 @@ apt-get $APT_OPTIONS update | indent
 
 echo "Installing ImageMagick ${IMAGEMAGICK_VERSION}" | arrow
 
-apt-get $APT_OPTIONS -y -d install imagemagick=$IMAGEMAGICK_VERSION bzlib freetype gs jpeg jng jp2 lcms png zlib librsvg2-bin| indent
+#apt-get $APT_OPTIONS -y -d install imagemagick=$IMAGEMAGICK_VERSION bzlib freetype gs jpeg jng jp2 lcms png zlib librsvg2-bin| indent
+apt-get $APT_OPTIONS -y -d install imagemagick bzlib freetype gs jpeg jng jp2 lcms png zlib librsvg2-bin| indent
 
 mkdir -p $BUILD_DIR/.apt
 
